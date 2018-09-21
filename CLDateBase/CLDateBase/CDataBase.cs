@@ -10,7 +10,9 @@ namespace CLDataBase
 {
     public class CDataBase
     {
-        public static string connStr = @"Data Source=.;Initial Catalog=Demo2;Integrated Security=true";
+        //public static string connStr = @"Data Source=.;Initial Catalog=Demo2;Integrated Security=true";
+        public static string connStr = @"Data Source =(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\44504\Desktop\计算机综合实验9.20\demo\demo.mdf;Integrated Security=True;Connect Timeout=30";
+        
         public static SqlConnection conn = new SqlConnection(connStr);
 
         public static DataSet GetDataFromDB(string sqlStr)
