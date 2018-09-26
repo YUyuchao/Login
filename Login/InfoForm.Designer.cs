@@ -38,10 +38,16 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.sel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.orderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.state = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operators = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantities = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -52,7 +58,6 @@
             // 
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
@@ -73,7 +78,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1237, 627);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "入库信息管理";
+            this.tabPage1.Text = "出入库信息管理";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
@@ -115,6 +120,14 @@
             // dgvInOut
             // 
             this.dgvInOut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInOut.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.sel,
+            this.orderNumber,
+            this.goodsId,
+            this.state,
+            this.time,
+            this.operators,
+            this.quantities});
             this.dgvInOut.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvInOut.Location = new System.Drawing.Point(143, 3);
             this.dgvInOut.Name = "dgvInOut";
@@ -174,17 +187,6 @@
             this.button6.Text = "取消";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1237, 627);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "出库信息管理";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
@@ -215,6 +217,54 @@
             this.tabPage5.Text = "人员信息管理";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // sel
+            // 
+            this.sel.HeaderText = "勾选";
+            this.sel.Name = "sel";
+            this.sel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // orderNumber
+            // 
+            this.orderNumber.DataPropertyName = "orderNumber";
+            this.orderNumber.HeaderText = "订单号";
+            this.orderNumber.Name = "orderNumber";
+            this.orderNumber.ReadOnly = true;
+            // 
+            // goodsId
+            // 
+            this.goodsId.DataPropertyName = "goodsId";
+            this.goodsId.HeaderText = "商品编号";
+            this.goodsId.Name = "goodsId";
+            // 
+            // state
+            // 
+            this.state.DataPropertyName = "state";
+            this.state.HeaderText = "出入库";
+            this.state.Items.AddRange(new object[] {
+            "in",
+            "out"});
+            this.state.Name = "state";
+            this.state.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.state.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // time
+            // 
+            this.time.DataPropertyName = "time";
+            this.time.HeaderText = "操作日期";
+            this.time.Name = "time";
+            // 
+            // operators
+            // 
+            this.operators.DataPropertyName = "operator";
+            this.operators.HeaderText = "操作员";
+            this.operators.Name = "operators";
+            // 
+            // quantities
+            // 
+            this.quantities.DataPropertyName = "quantities";
+            this.quantities.HeaderText = "数量";
+            this.quantities.Name = "quantities";
+            // 
             // InfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -227,6 +277,7 @@
             this.Name = "InfoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "InfoForm";
+            this.Load += new System.EventHandler(this.InfoForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -239,7 +290,6 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
@@ -251,5 +301,12 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn sel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goodsId;
+        private System.Windows.Forms.DataGridViewComboBoxColumn state;
+        private System.Windows.Forms.DataGridViewTextBoxColumn time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn operators;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantities;
     }
 }
