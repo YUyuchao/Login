@@ -43,6 +43,7 @@ namespace Login
                 if (loginData != null)
                 {
                     this.DialogResult = DialogResult.OK;
+                    this.Tag = username;
                     this.Dispose();
                     this.Close();
                 }
@@ -65,6 +66,7 @@ namespace Login
         private void button1_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+            this.Tag = string.Format("admin");
             this.Dispose();
             this.Close();
         }

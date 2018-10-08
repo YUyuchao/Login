@@ -9,11 +9,12 @@ using System.Windows.Forms;
 
 namespace Login
 {
-    public partial class Main : Form
+    public partial class MainForm : Form
     {
         
-        public Main()
+        public MainForm(string user)
         {
+            this.Tag = user;
             InitializeComponent();
         }
         private void 退出EToolStripMenuItem_Click(object sender, EventArgs e)
@@ -24,11 +25,21 @@ namespace Login
 
         private void 商品信息管理ToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            InfoForm info = new InfoForm();
+            InfoForm info = new InfoForm((string)this.Tag);
             info.MdiParent = this;
             info.WindowState = FormWindowState.Maximized; //最大化子窗体
             info.Show();
 
+        }
+
+        private void MainForm_SizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            toolStripStatusLabel2.Text = (string)this.Tag;
         }
     }
 }

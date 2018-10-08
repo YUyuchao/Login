@@ -24,7 +24,7 @@ namespace Login
             if (login.DialogResult == DialogResult.OK)
             {
                 login.Dispose();
-                Application.Run(new Main());
+                Application.Run(new MainForm((string)login.Tag));
             }
             else if (login.DialogResult == DialogResult.Cancel)
             {
