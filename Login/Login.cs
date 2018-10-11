@@ -31,7 +31,7 @@ namespace Login
             //string connString = @"Data Source=.;Initial Catalog=Demo2;Integrated Security=true"; 
             //SqlConnection conn = new SqlConnection(connString);     //创建链接对象
 
-            string sql = String.Format("select count (*) from tb_user where username='{0}' and password='{1}'", username, password);
+            string sql = String.Format("select * from tb_user where username='{0}' and password='{1}'", username, password);
             //获取用户名和密码匹配的行的数量的sql语句
             
             try

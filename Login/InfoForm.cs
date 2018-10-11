@@ -18,7 +18,7 @@ namespace Login
             InitializeComponent();
         }
         
-        private void IOallbtn_Click(object sender, EventArgs e)//查看所有按钮
+        private void IOallbtn_Click(object sender, EventArgs e)//总览按钮
         {   
             string sql = "select orderNumber , goodsId , state , time , operator , quantities  from tb_InOutInfo";
             dgvInOut.DataSource = CLDataBase.CDataBase.GetDataFromDB(sql).Tables[0];
@@ -30,49 +30,85 @@ namespace Login
             dgvInOut.DataSource = CLDataBase.CDataBase.GetDataFromDB(sql).Tables[0];
         }
 
-        private void InfoForm_Load(object sender, EventArgs e)
+        private void InfoForm_Load(object sender, EventArgs e)//窗体加载事件
         {
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            string sql = "select username from tb_user";
+            DataSet OpComboxDataset = CLDataBase.CDataBase.GetDataFromDB(sql);
+            OpComboxDataset.Tables[0].Rows.Add("all");
+            operatorCombox.DataSource = OpComboxDataset.Tables[0];
+            operatorCombox.DisplayMember = "username";
         }
 
-        private void IOinsertbtn_Click(object sender, EventArgs e)
+        private void IOinsertbtn_Click(object sender, EventArgs e)//添加按钮
         {
             IOinsertForm Iinsert = new IOinsertForm((string)this.Tag);
             Iinsert.ShowDialog();
         }
 
-        private void IOdeletebtn_Click(object sender, EventArgs e)
+        private void IOdeletebtn_Click(object sender, EventArgs e)//删除按钮
         {
-            
+            if (dgvInOut.SelectedRows.Count > 0)
+            {
+                DataRowView drv = dgvInOut.SelectedRows[0].DataBoundItem as DataRowView;
+                drv.Delete();
+                string sql = String.Format("DELETE from tb_InOutInfo where orderNumber=" + dgvInOut.CurrentRow.Cells["orderNumber"].Value);
+                if (CLDataBase.CDataBase.UpdateDB(sql) == true)
+                    MessageBox.Show("删除成功", "删除成功", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                else
+                    MessageBox.Show("删除失败", "删除失败", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
-        private void IOselectbtn_Click(object sender, EventArgs e)
+        private void IOselectbtn_Click(object sender, EventArgs e)//查询按钮
         {
-            string sql = String.Format("select (*) from tb_InOutInfo where time",);
-            #region
+            string sql = String.Format("select * from tb_InOutInfo where time >= '{0}' AND time<='{1}'", dateTimePicker1.Value.ToString("yyyy'-'MM'-'dd' '00':'00':'00"), dateTimePicker2.Value.ToString("yyyy'-'MM'-'dd' '23':'59':'59"));
 
-            if (ordNumTextbox.Text != null)
+            #region
+            if (ordNumTextbox.Text != "")
             {
-                sql += String.Format("and orderNumber='{0}'", ordNumTextbox.Text);
+                sql += String.Format("and orderNumber={0}", ordNumTextbox.Text);
             }
-            if (goodsIdTextbox.Text != null)
+            if (goodsIdTextbox.Text != "")
             {
-                sql += String.Format("and goodsId='{0}'", goodsIdTextbox.Text);
+                sql += String.Format("and goodsId={0}", goodsIdTextbox.Text);
             }
-            if (comboBox2.Text != null)
+            if (comboBox2.Text != "" && comboBox2.Text != "all")
             {
-                sql += String.Format("and state='{0}'", stateCombox.Text);
+                sql += String.Format("and state='{0}'", comboBox2.Text);
             }
-            if (operatorCombox.Text != null)
+            if (operatorCombox.Text != "" && operatorCombox.Text != "all")
             {
                 sql += String.Format("and operator='{0}'", operatorCombox.Text);
             }
-            if (quantitiesTextbox.Text != null)
+            if (quantitiesTextbox.Text != "")
             {
-                sql += String.Format("and quantities='{0}'", quantitiesTextbox.Text);
+                sql += String.Format("and quantities={0}", quantitiesTextbox.Text);
             }
-
             #endregion
+
+            try
+            {
+                DataSet selectData = CLDataBase.CDataBase.GetDataFromDB(sql);
+                if (selectData == null)
+                    MessageBox.Show("查询结果为空", "查询失败", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                else
+                    dgvInOut.DataSource = selectData.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "查询失败", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            finally
+            {   }
+        }
+
+        private void IOsavebtn_Click(object sender, EventArgs e)//保存修改按钮
+        {
+            if (dgvInOut.DataSource != null)
+            {
+                //string sql  = String.Format("UPDATE tb_InOutInfo SET goodsId = {0} WHERE orderNumber = {1}",dgvInOut.CurrentCell.ColumnIndex
+            }
         }
     }
 }

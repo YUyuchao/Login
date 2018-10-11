@@ -33,6 +33,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvInOut = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.operatorCombox = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -68,9 +70,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.sel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.orderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.goodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.state = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -144,7 +143,6 @@
             this.dgvInOut.AllowUserToResizeRows = false;
             this.dgvInOut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInOut.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.sel,
             this.orderNumber,
             this.goodsId,
             this.state,
@@ -185,13 +183,29 @@
             this.panel1.Size = new System.Drawing.Size(794, 194);
             this.panel1.TabIndex = 7;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(257, 122);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(17, 12);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "到";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(280, 117);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(136, 21);
+            this.dateTimePicker2.TabIndex = 13;
+            // 
             // comboBox2
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "入库",
-            "出库"});
+            "in",
+            "out",
+            "all"});
             this.comboBox2.Location = new System.Drawing.Point(470, 43);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(78, 20);
@@ -370,6 +384,7 @@
             this.IOsavebtn.TabIndex = 3;
             this.IOsavebtn.Text = "保存";
             this.IOsavebtn.UseVisualStyleBackColor = true;
+            this.IOsavebtn.Click += new System.EventHandler(this.IOsavebtn_Click);
             // 
             // tabPage3
             // 
@@ -521,29 +536,6 @@
             this.tabPage5.Text = "人员信息管理";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(280, 117);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(136, 21);
-            this.dateTimePicker2.TabIndex = 13;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(257, 122);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(17, 12);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "到";
-            // 
-            // sel
-            // 
-            this.sel.HeaderText = "勾选";
-            this.sel.Name = "sel";
-            this.sel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.sel.Width = 60;
-            // 
             // orderNumber
             // 
             this.orderNumber.DataPropertyName = "orderNumber";
@@ -575,6 +567,7 @@
             this.time.DataPropertyName = "time";
             this.time.HeaderText = "操作日期";
             this.time.Name = "time";
+            this.time.ReadOnly = true;
             // 
             // operators
             // 
@@ -657,7 +650,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn sel;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn goodsId;
         private System.Windows.Forms.DataGridViewComboBoxColumn state;
