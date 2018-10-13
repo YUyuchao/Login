@@ -33,9 +33,12 @@ namespace Login
                 INstate = String.Format("out");
             string INoperator = (string)this.Tag;
             string sql = String.Format("INSERT INTO tb_InOutInfo VALUES ('{0}','{1}',getdate(),'{2}','{3}')", INgoodsId, INstate, INoperator, INquantities);
-            
+
             if (CLDataBase.CDataBase.UpdateDB(sql) == true)
+            {
                 MessageBox.Show("插入成功", "插入成功", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.Close();
+            }
             else
                 MessageBox.Show("插入失败", "插入失败", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 

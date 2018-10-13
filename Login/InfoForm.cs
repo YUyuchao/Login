@@ -21,7 +21,11 @@ namespace Login
         private void IOallbtn_Click(object sender, EventArgs e)//总览按钮
         {   
             string sql = "select orderNumber , goodsId , state , time , operator , quantities  from tb_InOutInfo";
-            dgvInOut.DataSource = CLDataBase.CDataBase.GetDataFromDB(sql).Tables[0];
+            DataSet dataSetALL = CLDataBase.CDataBase.GetDataFromDB(sql);
+            if (dataSetALL == null)
+                MessageBox.Show("查询结果为空", "查询失败", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            else
+                dgvInOut.DataSource = dataSetALL.Tables[0];
         }
 
         private void IOcanclebtn_Click(object sender, EventArgs e)//取消按钮
@@ -48,15 +52,16 @@ namespace Login
 
         private void IOdeletebtn_Click(object sender, EventArgs e)//删除按钮
         {
-            if (dgvInOut.SelectedRows.Count > 0)
+            if (dgvInOut.CurrentRow != null)
             {
-                DataRowView drv = dgvInOut.SelectedRows[0].DataBoundItem as DataRowView;
-                drv.Delete();
-                string sql = String.Format("DELETE from tb_InOutInfo where orderNumber=" + dgvInOut.CurrentRow.Cells["orderNumber"].Value);
+                string sql = String.Format("DELETE from tb_InOutInfo where orderNumber={0}",dgvInOut.CurrentRow.Cells["orderNumber"].Value);
+                
                 if (CLDataBase.CDataBase.UpdateDB(sql) == true)
                     MessageBox.Show("删除成功", "删除成功", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 else
                     MessageBox.Show("删除失败", "删除失败", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                DataRowView drv = dgvInOut.CurrentRow.DataBoundItem as DataRowView;
+                drv.Delete();
             }
         }
 
@@ -107,7 +112,21 @@ namespace Login
         {
             if (dgvInOut.DataSource != null)
             {
-                //string sql  = String.Format("UPDATE tb_InOutInfo SET goodsId = {0} WHERE orderNumber = {1}",dgvInOut.CurrentCell.ColumnIndex
+                int row = dgvInOut.Rows.Count;//得到总行数
+                for (int i = 0; i < row; i++)
+                {
+                    string sql = String.Format("UPDATE tb_InOutInfo SET goodsId = {0},state ='{1}',operator = '{2}',quantities = {3} WHERE orderNumber = {4}",
+                        dgvInOut.Rows[i].Cells["goodsId"].Value,
+                        dgvInOut.Rows[i].Cells["state"].Value,
+                        dgvInOut.Rows[i].Cells["operators"].Value,
+                        dgvInOut.Rows[i].Cells["quantities"].Value,
+                        dgvInOut.Rows[i].Cells["orderNumber"].Value);
+                    if (CLDataBase.CDataBase.UpdateDB(sql) != true)
+                    {
+                        MessageBox.Show("保存失败", "保存失败", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    } 
+                }
+                MessageBox.Show("保存成功", "保存成功", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

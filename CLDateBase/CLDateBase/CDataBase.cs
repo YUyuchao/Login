@@ -10,8 +10,8 @@ namespace CLDataBase
 {
     public class CDataBase
     {
-        public static string connStr = @"Data Source=.;Initial Catalog=demo;Integrated Security=true";
-        //public static string connStr = @"Data Source=OMEN\SQLEXPRESS;Initial Catalog=demo;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //public static string connStr = @"Data Source=.;Initial Catalog=demo;Integrated Security=true";
+        public static string connStr = @"Data Source=OMEN\SQLEXPRESS;Initial Catalog=demo;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         
         public static SqlConnection conn = new SqlConnection(connStr);
 
