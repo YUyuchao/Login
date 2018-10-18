@@ -9,11 +9,10 @@ using System.Windows.Forms;
 
 namespace Login
 {
-    public partial class IOinsertForm : Form
+    public partial class GoodsInsertForm : Form
     {
-        public IOinsertForm(string user)
+        public GoodsInsertForm()
         {
-            this.Tag = user;
             InitializeComponent();
         }
 
@@ -24,16 +23,16 @@ namespace Login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int INgoodsId = (int)numericUpDown1.Value;
-            int INquantities = (int)numericUpDown2.Value;
-            string INstate;
-            if (radioButton0.Checked == true)
-                INstate = String.Format("in");
-            else
-                INstate = String.Format("out");
-            string INoperator = (string)this.Tag;
-            string sql = String.Format("INSERT INTO tb_InOutInfo VALUES ('{0}','{1}',getdate(),'{2}','{3}')", INgoodsId, INstate, INoperator, INquantities);
-
+            int Gprice = (int)numericUpDown1.Value;
+            int Gguarantee = (int)numericUpDown2.Value;
+            string Gproduce = dateTimePicker1.Value.ToString("yyyy'-'MM'-'dd");
+            string Gname = textBox1.Text;
+            string Gclassification = textBox2.Text;
+            string Gcompany = textBox3.Text;
+            if (Gname == "")
+                Gname = "null";
+            string sql = String.Format("INSERT INTO tb_goodsinfo VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')",Gprice,Gclassification,Gname,Gproduce,Gguarantee,Gcompany);
+            
             try
             {
                 if (CLDataBase.CDataBase.UpdateDB(sql) == true)
@@ -46,18 +45,10 @@ namespace Login
                     MessageBox.Show("插入失败", "插入失败", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "操作数据库出错！", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-        }
-
-        private void IOinsertForm_Load(object sender, EventArgs e)
-        {
-            string sql = "select Id from tb_goodsinfo";
-            DataSet LoadComboxDataset = CLDataBase.CDataBase.GetDataFromDB(sql);
-            comboBox1.DataSource = LoadComboxDataset.Tables[0];
-            comboBox1.DisplayMember = "Id";
         }
     }
 }

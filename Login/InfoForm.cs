@@ -17,8 +17,10 @@ namespace Login
             this.Tag = user;
             InitializeComponent();
         }
-        
-        private void IOallbtn_Click(object sender, EventArgs e)//总览按钮
+        //出入库信息管理
+        #region
+
+        private void IOallbtn_Click(object sender, EventArgs e)//出入库信息总览按钮
         {   
             string sql = "select orderNumber , goodsId , state , time , operator , quantities  from tb_InOutInfo";
             DataSet dataSetALL = CLDataBase.CDataBase.GetDataFromDB(sql);
@@ -38,10 +40,19 @@ namespace Login
         {
             panel1.BorderStyle = BorderStyle.FixedSingle;
             string sql = "select username from tb_user";
-            DataSet OpComboxDataset = CLDataBase.CDataBase.GetDataFromDB(sql);
-            OpComboxDataset.Tables[0].Rows.Add("all");
-            operatorCombox.DataSource = OpComboxDataset.Tables[0];
+
+            DataSet LoadComboxDataset = CLDataBase.CDataBase.GetDataFromDB(sql);
+            LoadComboxDataset.Tables[0].Rows.Add("all");
+            operatorCombox.DataSource = LoadComboxDataset.Tables[0];
             operatorCombox.DisplayMember = "username";
+            
+            sql = "select name from tb_goodsinfo";
+            LoadComboxDataset.Clear();
+            LoadComboxDataset = CLDataBase.CDataBase.GetDataFromDB(sql);
+            LoadComboxDataset.Tables[0].Rows.Add("all");
+            GnameCombox.DataSource = LoadComboxDataset.Tables[0];
+            GnameCombox.DisplayMember = "name";
+
         }
 
         private void IOinsertbtn_Click(object sender, EventArgs e)//添加按钮
@@ -52,7 +63,7 @@ namespace Login
 
         private void IOdeletebtn_Click(object sender, EventArgs e)//删除按钮
         {
-            if (dgvInOut.CurrentRow != null)
+            if ((dgvInOut.CurrentRow != null)&&(MessageBox.Show("确定删除?","删除提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning) == DialogResult.OK))
             {
                 string sql = String.Format("DELETE from tb_InOutInfo where orderNumber={0}",dgvInOut.CurrentRow.Cells["orderNumber"].Value);
                 
@@ -68,7 +79,8 @@ namespace Login
         private void IOselectbtn_Click(object sender, EventArgs e)//查询按钮
         {
             string sql = String.Format("select * from tb_InOutInfo where time >= '{0}' AND time<='{1}'", dateTimePicker1.Value.ToString("yyyy'-'MM'-'dd' '00':'00':'00"), dateTimePicker2.Value.ToString("yyyy'-'MM'-'dd' '23':'59':'59"));
-
+            
+            //查询判断语句
             #region
             if (ordNumTextbox.Text != "")
             {
@@ -92,7 +104,7 @@ namespace Login
             }
             #endregion
 
-            try
+            try//执行查询
             {
                 DataSet selectData = CLDataBase.CDataBase.GetDataFromDB(sql);
                 if (selectData == null)
@@ -103,9 +115,7 @@ namespace Login
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "查询失败", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            finally
-            {   }
+            }//执行查询
         }
 
         private void IOsavebtn_Click(object sender, EventArgs e)//保存修改按钮
@@ -121,13 +131,66 @@ namespace Login
                         dgvInOut.Rows[i].Cells["operators"].Value,
                         dgvInOut.Rows[i].Cells["quantities"].Value,
                         dgvInOut.Rows[i].Cells["orderNumber"].Value);
-                    if (CLDataBase.CDataBase.UpdateDB(sql) != true)
+                    try
                     {
-                        MessageBox.Show("保存失败", "保存失败", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    } 
+                        if (CLDataBase.CDataBase.UpdateDB(sql) != true)
+                        {
+                            MessageBox.Show("保存失败", "保存失败", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "操作数据库出错！", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
                 MessageBox.Show("保存成功", "保存成功", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        #endregion
+
+        private void GinsertBtn_Click(object sender, EventArgs e)//商品信息添加按钮
+        {
+            GoodsInsertForm Ginsertform = new GoodsInsertForm();
+            Ginsertform.ShowDialog();
+        }
+
+        private void GallBtn_Click(object sender, EventArgs e)//商品信息总览按钮
+        {
+            string sql = "select Id,price,classifications,name,producedate,guaranteeperiod,company  from tb_goodsinfo";
+            DataSet dataSetALL = CLDataBase.CDataBase.GetDataFromDB(sql);
+            if (dataSetALL == null)
+                MessageBox.Show("查询结果为空", "查询失败", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            else
+                dgvGoodsInfo.DataSource = dataSetALL.Tables[0];
+        }
+
+        private void GdeleteBtn_Click(object sender, EventArgs e)//商品信息删除按钮
+        {
+            if ((dgvGoodsInfo.CurrentRow != null) && (MessageBox.Show("确定删除?", "删除提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK))
+            {
+                string sql = String.Format("DELETE from tb_goodsinfo where Id={0}", dgvGoodsInfo.CurrentRow.Cells["GgoodsID"].Value);
+                try
+                {
+                    if (CLDataBase.CDataBase.UpdateDB(sql) == true)
+                    {
+                        MessageBox.Show("删除成功", "删除成功", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("删除失败", "删除失败", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "操作数据库出错！", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                
+                DataRowView drv = dgvGoodsInfo.CurrentRow.DataBoundItem as DataRowView;
+                drv.Delete();
+            }
+        }
+
     }
 }

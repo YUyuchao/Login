@@ -30,8 +30,14 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.InOutTabLP = new System.Windows.Forms.TableLayoutPanel();
             this.dgvInOut = new System.Windows.Forms.DataGridView();
+            this.orderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.state = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operators = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantities = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -66,25 +72,58 @@
             this.Squantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Scategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Scompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.SselectBtn = new System.Windows.Forms.Button();
+            this.ScountBtn = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.GoodsTabLP = new System.Windows.Forms.TableLayoutPanel();
+            this.dgvGoodsInfo = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.GidNo = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.GclassifiTexbox = new System.Windows.Forms.TextBox();
+            this.GpriceNo = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.GnameCombox = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.GselectBtn = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.GinsertBtn = new System.Windows.Forms.Button();
+            this.GdeleteBtn = new System.Windows.Forms.Button();
+            this.GallBtn = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.GsaveBtn = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.orderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operators = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantities = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GgoodsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gclassification = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gproducedate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gguaranteeperiod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gcompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.InOutTabLP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInOut)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.GoodsTabLP.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGoodsInfo)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GidNo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GpriceNo)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -98,43 +137,43 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(935, 558);
+            this.tabControl1.Size = new System.Drawing.Size(926, 546);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage1.Controls.Add(this.InOutTabLP);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(927, 529);
+            this.tabPage1.Size = new System.Drawing.Size(918, 517);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "出入库信息管理";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
+            // InOutTabLP
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 800F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
-            this.tableLayoutPanel1.Controls.Add(this.dgvInOut, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.panel4, 2, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(921, 523);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.InOutTabLP.ColumnCount = 3;
+            this.InOutTabLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 800F));
+            this.InOutTabLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.InOutTabLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.InOutTabLP.Controls.Add(this.dgvInOut, 0, 0);
+            this.InOutTabLP.Controls.Add(this.panel1, 0, 2);
+            this.InOutTabLP.Controls.Add(this.panel4, 2, 0);
+            this.InOutTabLP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InOutTabLP.Location = new System.Drawing.Point(3, 3);
+            this.InOutTabLP.Margin = new System.Windows.Forms.Padding(2);
+            this.InOutTabLP.Name = "InOutTabLP";
+            this.InOutTabLP.RowCount = 3;
+            this.InOutTabLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.InOutTabLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.InOutTabLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.InOutTabLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.InOutTabLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.InOutTabLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.InOutTabLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.InOutTabLP.Size = new System.Drawing.Size(912, 511);
+            this.InOutTabLP.TabIndex = 0;
             // 
             // dgvInOut
             // 
@@ -149,16 +188,61 @@
             this.time,
             this.operators,
             this.quantities});
-            this.tableLayoutPanel1.SetColumnSpan(this.dgvInOut, 2);
+            this.InOutTabLP.SetColumnSpan(this.dgvInOut, 2);
             this.dgvInOut.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvInOut.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvInOut.Location = new System.Drawing.Point(2, 2);
             this.dgvInOut.Margin = new System.Windows.Forms.Padding(2);
             this.dgvInOut.Name = "dgvInOut";
-            this.tableLayoutPanel1.SetRowSpan(this.dgvInOut, 2);
+            this.InOutTabLP.SetRowSpan(this.dgvInOut, 2);
             this.dgvInOut.RowTemplate.Height = 27;
-            this.dgvInOut.Size = new System.Drawing.Size(816, 319);
+            this.dgvInOut.Size = new System.Drawing.Size(807, 307);
             this.dgvInOut.TabIndex = 0;
+            // 
+            // orderNumber
+            // 
+            this.orderNumber.DataPropertyName = "orderNumber";
+            this.orderNumber.HeaderText = "订单号";
+            this.orderNumber.Name = "orderNumber";
+            this.orderNumber.ReadOnly = true;
+            // 
+            // goodsId
+            // 
+            this.goodsId.DataPropertyName = "goodsId";
+            this.goodsId.HeaderText = "商品编号";
+            this.goodsId.Name = "goodsId";
+            // 
+            // state
+            // 
+            this.state.DataPropertyName = "state";
+            this.state.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.state.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.state.HeaderText = "出入库";
+            this.state.Items.AddRange(new object[] {
+            "in",
+            "out"});
+            this.state.Name = "state";
+            this.state.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.state.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // time
+            // 
+            this.time.DataPropertyName = "time";
+            this.time.HeaderText = "操作日期";
+            this.time.Name = "time";
+            this.time.ReadOnly = true;
+            // 
+            // operators
+            // 
+            this.operators.DataPropertyName = "operator";
+            this.operators.HeaderText = "操作员";
+            this.operators.Name = "operators";
+            // 
+            // quantities
+            // 
+            this.quantities.DataPropertyName = "quantities";
+            this.quantities.HeaderText = "数量";
+            this.quantities.Name = "quantities";
             // 
             // panel1
             // 
@@ -178,7 +262,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 326);
+            this.panel1.Location = new System.Drawing.Point(3, 314);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(794, 194);
             this.panel1.TabIndex = 7;
@@ -320,7 +404,7 @@
             this.panel4.Controls.Add(this.IOallbtn);
             this.panel4.Controls.Add(this.IOcanclebtn);
             this.panel4.Controls.Add(this.IOsavebtn);
-            this.panel4.Location = new System.Drawing.Point(823, 3);
+            this.panel4.Location = new System.Drawing.Point(814, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(95, 294);
             this.panel4.TabIndex = 8;
@@ -393,7 +477,7 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage3.Size = new System.Drawing.Size(927, 529);
+            this.tabPage3.Size = new System.Drawing.Size(918, 517);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "库存信息管理";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -405,8 +489,8 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.dataGridView1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button2, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.SselectBtn, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.ScountBtn, 1, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
@@ -419,7 +503,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(923, 525);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(914, 513);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // dataGridView1
@@ -443,7 +527,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.tableLayoutPanel2.SetRowSpan(this.dataGridView1, 7);
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(818, 534);
+            this.dataGridView1.Size = new System.Drawing.Size(809, 534);
             this.dataGridView1.TabIndex = 0;
             // 
             // Id
@@ -492,38 +576,306 @@
             this.Scompany.HeaderText = "所属公司";
             this.Scompany.Name = "Scompany";
             // 
-            // button1
+            // SselectBtn
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button1.Location = new System.Drawing.Point(840, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(64, 26);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "查询";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SselectBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.SselectBtn.Location = new System.Drawing.Point(831, 2);
+            this.SselectBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.SselectBtn.Name = "SselectBtn";
+            this.SselectBtn.Size = new System.Drawing.Size(64, 26);
+            this.SselectBtn.TabIndex = 1;
+            this.SselectBtn.Text = "查询";
+            this.SselectBtn.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // ScountBtn
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button2.Location = new System.Drawing.Point(840, 50);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(64, 26);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "统计";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ScountBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ScountBtn.Location = new System.Drawing.Point(831, 50);
+            this.ScountBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.ScountBtn.Name = "ScountBtn";
+            this.ScountBtn.Size = new System.Drawing.Size(64, 26);
+            this.ScountBtn.TabIndex = 2;
+            this.ScountBtn.Text = "统计";
+            this.ScountBtn.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.GoodsTabLP);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage4.Size = new System.Drawing.Size(927, 529);
+            this.tabPage4.Size = new System.Drawing.Size(918, 517);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "商品信息管理";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // GoodsTabLP
+            // 
+            this.GoodsTabLP.ColumnCount = 3;
+            this.GoodsTabLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 800F));
+            this.GoodsTabLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.GoodsTabLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.GoodsTabLP.Controls.Add(this.dgvGoodsInfo, 0, 0);
+            this.GoodsTabLP.Controls.Add(this.panel2, 0, 2);
+            this.GoodsTabLP.Controls.Add(this.panel3, 2, 0);
+            this.GoodsTabLP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GoodsTabLP.Location = new System.Drawing.Point(2, 2);
+            this.GoodsTabLP.Margin = new System.Windows.Forms.Padding(2);
+            this.GoodsTabLP.Name = "GoodsTabLP";
+            this.GoodsTabLP.RowCount = 3;
+            this.GoodsTabLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.GoodsTabLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.GoodsTabLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.GoodsTabLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.GoodsTabLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.GoodsTabLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.GoodsTabLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.GoodsTabLP.Size = new System.Drawing.Size(914, 513);
+            this.GoodsTabLP.TabIndex = 1;
+            // 
+            // dgvGoodsInfo
+            // 
+            this.dgvGoodsInfo.AllowUserToAddRows = false;
+            this.dgvGoodsInfo.AllowUserToDeleteRows = false;
+            this.dgvGoodsInfo.AllowUserToResizeRows = false;
+            this.dgvGoodsInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGoodsInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.GgoodsID,
+            this.Gprice,
+            this.Gclassification,
+            this.Gname,
+            this.Gproducedate,
+            this.Gguaranteeperiod,
+            this.Gcompany});
+            this.GoodsTabLP.SetColumnSpan(this.dgvGoodsInfo, 2);
+            this.dgvGoodsInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvGoodsInfo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dgvGoodsInfo.Location = new System.Drawing.Point(2, 2);
+            this.dgvGoodsInfo.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvGoodsInfo.Name = "dgvGoodsInfo";
+            this.GoodsTabLP.SetRowSpan(this.dgvGoodsInfo, 2);
+            this.dgvGoodsInfo.RowTemplate.Height = 27;
+            this.dgvGoodsInfo.Size = new System.Drawing.Size(809, 309);
+            this.dgvGoodsInfo.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.GidNo);
+            this.panel2.Controls.Add(this.numericUpDown2);
+            this.panel2.Controls.Add(this.dateTimePicker3);
+            this.panel2.Controls.Add(this.GclassifiTexbox);
+            this.panel2.Controls.Add(this.GpriceNo);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.GnameCombox);
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.GselectBtn);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 316);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(794, 194);
+            this.panel2.TabIndex = 7;
+            // 
+            // GidNo
+            // 
+            this.GidNo.Location = new System.Drawing.Point(112, 42);
+            this.GidNo.Name = "GidNo";
+            this.GidNo.Size = new System.Drawing.Size(64, 21);
+            this.GidNo.TabIndex = 19;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(309, 114);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(62, 21);
+            this.numericUpDown2.TabIndex = 18;
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Location = new System.Drawing.Point(112, 113);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(132, 21);
+            this.dateTimePicker3.TabIndex = 17;
+            // 
+            // GclassifiTexbox
+            // 
+            this.GclassifiTexbox.Location = new System.Drawing.Point(461, 41);
+            this.GclassifiTexbox.Name = "GclassifiTexbox";
+            this.GclassifiTexbox.Size = new System.Drawing.Size(90, 21);
+            this.GclassifiTexbox.TabIndex = 16;
+            // 
+            // GpriceNo
+            // 
+            this.GpriceNo.Location = new System.Drawing.Point(295, 42);
+            this.GpriceNo.Name = "GpriceNo";
+            this.GpriceNo.Size = new System.Drawing.Size(76, 21);
+            this.GpriceNo.TabIndex = 15;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(390, 116);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 12);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "所属公司：";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(250, 116);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "保质期：";
+            // 
+            // GnameCombox
+            // 
+            this.GnameCombox.FormattingEnabled = true;
+            this.GnameCombox.Location = new System.Drawing.Point(613, 43);
+            this.GnameCombox.Name = "GnameCombox";
+            this.GnameCombox.Size = new System.Drawing.Size(121, 20);
+            this.GnameCombox.TabIndex = 11;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(461, 113);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(144, 21);
+            this.textBox1.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(40, 116);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 12);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "生产日期：";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(566, 46);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 12);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "名称：";
+            // 
+            // GselectBtn
+            // 
+            this.GselectBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.GselectBtn.Location = new System.Drawing.Point(670, 116);
+            this.GselectBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.GselectBtn.Name = "GselectBtn";
+            this.GselectBtn.Size = new System.Drawing.Size(64, 26);
+            this.GselectBtn.TabIndex = 1;
+            this.GselectBtn.Text = "查询";
+            this.GselectBtn.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(390, 46);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(65, 12);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "商品类别：";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(41, 46);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(65, 12);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "商品编号：";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(224, 46);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 12);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "商品价格：";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.GinsertBtn);
+            this.panel3.Controls.Add(this.GdeleteBtn);
+            this.panel3.Controls.Add(this.GallBtn);
+            this.panel3.Controls.Add(this.button7);
+            this.panel3.Controls.Add(this.GsaveBtn);
+            this.panel3.Location = new System.Drawing.Point(816, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(95, 294);
+            this.panel3.TabIndex = 8;
+            // 
+            // GinsertBtn
+            // 
+            this.GinsertBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.GinsertBtn.Location = new System.Drawing.Point(15, 16);
+            this.GinsertBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.GinsertBtn.Name = "GinsertBtn";
+            this.GinsertBtn.Size = new System.Drawing.Size(64, 26);
+            this.GinsertBtn.TabIndex = 2;
+            this.GinsertBtn.Text = "添加";
+            this.GinsertBtn.UseVisualStyleBackColor = true;
+            this.GinsertBtn.Click += new System.EventHandler(this.GinsertBtn_Click);
+            // 
+            // GdeleteBtn
+            // 
+            this.GdeleteBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.GdeleteBtn.Location = new System.Drawing.Point(15, 72);
+            this.GdeleteBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.GdeleteBtn.Name = "GdeleteBtn";
+            this.GdeleteBtn.Size = new System.Drawing.Size(64, 26);
+            this.GdeleteBtn.TabIndex = 4;
+            this.GdeleteBtn.Text = "删除";
+            this.GdeleteBtn.UseVisualStyleBackColor = true;
+            this.GdeleteBtn.Click += new System.EventHandler(this.GdeleteBtn_Click);
+            // 
+            // GallBtn
+            // 
+            this.GallBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.GallBtn.Location = new System.Drawing.Point(15, 249);
+            this.GallBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.GallBtn.Name = "GallBtn";
+            this.GallBtn.Size = new System.Drawing.Size(64, 26);
+            this.GallBtn.TabIndex = 5;
+            this.GallBtn.Text = "总览";
+            this.GallBtn.UseVisualStyleBackColor = true;
+            this.GallBtn.Click += new System.EventHandler(this.GallBtn_Click);
+            // 
+            // button7
+            // 
+            this.button7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button7.Enabled = false;
+            this.button7.Location = new System.Drawing.Point(15, 189);
+            this.button7.Margin = new System.Windows.Forms.Padding(2);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(64, 26);
+            this.button7.TabIndex = 6;
+            this.button7.Text = "取消";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // GsaveBtn
+            // 
+            this.GsaveBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.GsaveBtn.Location = new System.Drawing.Point(15, 127);
+            this.GsaveBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.GsaveBtn.Name = "GsaveBtn";
+            this.GsaveBtn.Size = new System.Drawing.Size(64, 26);
+            this.GsaveBtn.TabIndex = 3;
+            this.GsaveBtn.Text = "保存";
+            this.GsaveBtn.UseVisualStyleBackColor = true;
             // 
             // tabPage5
             // 
@@ -531,61 +883,59 @@
             this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage5.Size = new System.Drawing.Size(927, 529);
+            this.tabPage5.Size = new System.Drawing.Size(918, 517);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "人员信息管理";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // orderNumber
+            // GgoodsID
             // 
-            this.orderNumber.DataPropertyName = "orderNumber";
-            this.orderNumber.HeaderText = "订单号";
-            this.orderNumber.Name = "orderNumber";
-            this.orderNumber.ReadOnly = true;
+            this.GgoodsID.DataPropertyName = "Id";
+            this.GgoodsID.HeaderText = "商品编号";
+            this.GgoodsID.Name = "GgoodsID";
+            this.GgoodsID.ReadOnly = true;
             // 
-            // goodsId
+            // Gprice
             // 
-            this.goodsId.DataPropertyName = "goodsId";
-            this.goodsId.HeaderText = "商品编号";
-            this.goodsId.Name = "goodsId";
+            this.Gprice.DataPropertyName = "price";
+            this.Gprice.HeaderText = "商品价格";
+            this.Gprice.Name = "Gprice";
             // 
-            // state
+            // Gclassification
             // 
-            this.state.DataPropertyName = "state";
-            this.state.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.state.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.state.HeaderText = "出入库";
-            this.state.Items.AddRange(new object[] {
-            "in",
-            "out"});
-            this.state.Name = "state";
-            this.state.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.state.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Gclassification.DataPropertyName = "classifications";
+            this.Gclassification.HeaderText = "商品类别";
+            this.Gclassification.Name = "Gclassification";
             // 
-            // time
+            // Gname
             // 
-            this.time.DataPropertyName = "time";
-            this.time.HeaderText = "操作日期";
-            this.time.Name = "time";
-            this.time.ReadOnly = true;
+            this.Gname.DataPropertyName = "name";
+            this.Gname.HeaderText = "名称";
+            this.Gname.Name = "Gname";
             // 
-            // operators
+            // Gproducedate
             // 
-            this.operators.DataPropertyName = "operator";
-            this.operators.HeaderText = "操作员";
-            this.operators.Name = "operators";
+            this.Gproducedate.DataPropertyName = "producedate";
+            this.Gproducedate.HeaderText = "生产日期";
+            this.Gproducedate.Name = "Gproducedate";
             // 
-            // quantities
+            // Gguaranteeperiod
             // 
-            this.quantities.DataPropertyName = "quantities";
-            this.quantities.HeaderText = "数量";
-            this.quantities.Name = "quantities";
+            this.Gguaranteeperiod.DataPropertyName = "guaranteeperiod";
+            this.Gguaranteeperiod.HeaderText = "保质期";
+            this.Gguaranteeperiod.Name = "Gguaranteeperiod";
+            // 
+            // Gcompany
+            // 
+            this.Gcompany.DataPropertyName = "company";
+            this.Gcompany.HeaderText = "所属公司";
+            this.Gcompany.Name = "Gcompany";
             // 
             // InfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(935, 558);
+            this.ClientSize = new System.Drawing.Size(926, 546);
             this.ControlBox = false;
             this.Controls.Add(this.tabControl1);
             this.Name = "InfoForm";
@@ -594,7 +944,7 @@
             this.Load += new System.EventHandler(this.InfoForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.InOutTabLP.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInOut)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -602,6 +952,15 @@
             this.tabPage3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.GoodsTabLP.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGoodsInfo)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GidNo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GpriceNo)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -613,7 +972,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel InOutTabLP;
         private System.Windows.Forms.DataGridView dgvInOut;
         private System.Windows.Forms.Button IOselectbtn;
         private System.Windows.Forms.Button IOinsertbtn;
@@ -622,18 +981,9 @@
         private System.Windows.Forms.Button IOallbtn;
         private System.Windows.Forms.Button IOcanclebtn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SselectBtn;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goodsName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sordernumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sstate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn intime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sprice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Squantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Scategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Scompany;
+        private System.Windows.Forms.Button ScountBtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox operatorCombox;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -656,5 +1006,45 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn time;
         private System.Windows.Forms.DataGridViewTextBoxColumn operators;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantities;
+        private System.Windows.Forms.TableLayoutPanel GoodsTabLP;
+        private System.Windows.Forms.DataGridView dgvGoodsInfo;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox GnameCombox;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button GselectBtn;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button GinsertBtn;
+        private System.Windows.Forms.Button GdeleteBtn;
+        private System.Windows.Forms.Button GallBtn;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button GsaveBtn;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.TextBox GclassifiTexbox;
+        private System.Windows.Forms.NumericUpDown GpriceNo;
+        private System.Windows.Forms.NumericUpDown GidNo;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goodsName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sordernumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sstate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn intime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sprice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Squantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Scategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Scompany;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GgoodsID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gprice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gclassification;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gproducedate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gguaranteeperiod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gcompany;
     }
 }
